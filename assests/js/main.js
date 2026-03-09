@@ -50,36 +50,13 @@ class Circle {
   }
 }
 
-let miCirculo = new Circle(
-  canvasOOP.width / 2,
-  canvasOOP.height / 2,
-  50,
-  "rgb(27,44,43)",
-  "Tec",
-  "rgb(245,66,221)",
-  "white"
-);
-
+let miCirculo = new Circle(canvasOOP.width / 2, canvasOOP.height / 2, 50, "rgb(27,44,43)", "Tec", "rgb(245,66,221)", "white");
 miCirculo.draw(ctx);
 
 let randomRadius = Math.floor(Math.random() * 50 + 30);
-
-let randomX =
-  Math.random() * (canvasRandom.width - 2 * randomRadius) + randomRadius;
-
-let randomY =
-  Math.random() * (canvasRandom.height - 2 * randomRadius) + randomRadius;
-
-let miCirculoRandom = new Circle(
-  randomX,
-  randomY,
-  randomRadius,
-  "green",
-  "Tec",
-  "rgb(83,186,52)",
-  "white"
-);
-
+let randomX = Math.random() * (canvasRandom.width - 2 * randomRadius) + randomRadius;
+let randomY = Math.random() * (canvasRandom.height - 2 * randomRadius) + randomRadius;
+let miCirculoRandom = new Circle(randomX, randomY, randomRadius, "green", "Tec", "rgb(83,186,52)", "white");
 miCirculoRandom.draw(ctxRandom);
 
 let arrayCircle = [];
@@ -91,13 +68,13 @@ function isOverlapping(x, y, radius, circles) {
     let distance = Math.sqrt(dx * dx + dy * dy);
 
     if (distance < radius + circle.radius) {
-      return true; // se están tocando o superponiendo
+      return true;
     }
   }
   return false;
 }
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 10; i++) {
   let radius = Math.floor(Math.random() * 20 + 20);
   let x, y;
   let attempts = 0;
@@ -108,15 +85,10 @@ for (let i = 0; i < 5; i++) {
     attempts++;
   } while (isOverlapping(x, y, radius, arrayCircle) && attempts < 100);
 
-  let circle = new Circle(
-    x,
-    y,
-    radius,
-    "#9e500d",
-    i + 1,
-    "#f29a4e",
-    "white"
-  );
+  let borderColor = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
+  let fillColor = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
+
+  let circle = new Circle(x, y, radius, borderColor, i + 1, fillColor, "white");
 
   arrayCircle.push(circle);
   circle.draw(ctxMultiple);

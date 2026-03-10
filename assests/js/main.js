@@ -15,9 +15,9 @@ canvasRandom.width = 300;
 canvasMultiple.height = 200;
 canvasMultiple.width = 300;
 
-canvasOOP.style.background = "#ff8";
+canvasOOP.style.background = "rgb(213, 249, 244)";
 canvasRandom.style.background = "#e6f7f6";
-canvasMultiple.style.background = "#fcfb97";
+canvasMultiple.style.background = "#defbfc";
 
 class Circle {
   constructor(x, y, radius, color, text, backcolor, textcolor) {
@@ -50,13 +50,13 @@ class Circle {
   }
 }
 
-let miCirculo = new Circle(canvasOOP.width / 2, canvasOOP.height / 2, 50, "rgb(27,44,43)", "Tec", "rgb(245,66,221)", "white");
+let miCirculo = new Circle(canvasOOP.width / 2, canvasOOP.height / 2, 50, "rgb(13, 115, 108)", "Tec", "rgb(107, 199, 128)", "white");
 miCirculo.draw(ctx);
 
 let randomRadius = Math.floor(Math.random() * 50 + 30);
 let randomX = Math.random() * (canvasRandom.width - 2 * randomRadius) + randomRadius;
 let randomY = Math.random() * (canvasRandom.height - 2 * randomRadius) + randomRadius;
-let miCirculoRandom = new Circle(randomX, randomY, randomRadius, "green", "Tec", "rgb(83,186,52)", "white");
+let miCirculoRandom = new Circle(randomX, randomY, randomRadius, "green", "Tec", "rgb(135, 210, 112)", "white");
 miCirculoRandom.draw(ctxRandom);
 
 let arrayCircle = [];

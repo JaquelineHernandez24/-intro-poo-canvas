@@ -2,130 +2,152 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assests/img/favicon.png">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="./assests/img/favicon.png">
 
-    <title>Intro Canvas 2D</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        body {
-            background: linear-gradient(135deg,#eef2ff,#e0f7ff);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<title>Canvas 2D</title>
 
-        header {
-            background: linear-gradient(90deg,#667eea,#764ba2);
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+<style>
 
-        header h1 {
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
+body{
+margin:0;
+font-family:'Segoe UI', Tahoma;
+background:#f5f7fb;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+}
 
-        header p {
-            font-size: 1rem;
-            margin-bottom: 0;
-        }
+/* HERO */
 
-        main {
-            flex: 1;
-            padding: 2rem 1rem;
-        }
+.hero{
+background:linear-gradient(120deg,#109662d4,#1a9977);
+color:white;
+text-align:center;
+padding:70px 20px 80px 20px;
+position:relative;
+}
 
-        .canvas-card {
-            background-color: #ffffffcc;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.hero h1{
+font-weight:700;
+}
 
-        .canvas-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-        }
+/* WAVE */
 
-        canvas {
-            border-radius: 12px;
-            max-width: 100%;
-            background: #f7f7f7;
-        }
+.wave{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:60px;
+}
 
-        footer {
-            background: linear-gradient(90deg,#141e30,#243b55);
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            font-size: 0.9rem;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
-        }
-    </style>
+/* MAIN */
+
+main{
+margin-top:-40px;
+}
+
+.canvas-card{
+background:white;
+border-radius:20px;
+padding:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+transition:0.3s;
+}
+
+.canvas-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 30px rgba(0,0,0,.18);
+}
+
+canvas{
+border-radius:10px;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:auto;
+background:#111827;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Graficación por Computadora</h1>
-        <p>Canvas 2D con Programación Orientada a Objetos</p>
-    </header>
+<!-- HERO -->
+<section class="hero">
 
-    <main class="container my-5">
+<h1>Graficación por Computadora</h1>
+<p>Canvas 2D con Programación Orientada a Objetos</p>
 
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">Objetos 2D mediante OOP</h2>
-        </div>
+<!-- ONDA MÁS PEQUEÑA -->
+<svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+<path fill="#f5f7fb"
+d="M0,40 C200,80 400,0 720,40 C1040,80 1240,10 1440,40 L1440,100 L0,100 Z">
+</path>
+</svg>
 
-        <div class="row justify-content-center g-4">
+</section>
 
-            <div class="col-md-4">
-                <div class="canvas-card text-center">
-                    <h5 class="mb-3">Objeto 2D</h5>
-                    <canvas id="canvasOOP" width="300" height="200"></canvas>
-                </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="canvas-card text-center">
-                    <h5 class="mb-3">Objeto con Random</h5>
-                    <canvas id="canvasRandom" width="300" height="200"></canvas>
-                </div>
-            </div>
+<!-- CONTENIDO -->
+<main class="container pb-5">
 
-            <div class="col-md-4">
-                <div class="canvas-card text-center">
-                    <h5 class="mb-3">Múltiples objetos</h5>
-                    <canvas id="canvasMultiple" width="300" height="200"></canvas>
-                </div>
-            </div>
+<div class="text-center mb-5">
+<h2 class="fw-bold">Objetos 2D mediante OOP</h2>
+</div>
 
-        </div>
+<div class="row g-4 justify-content-center">
 
-    </main>
+<div class="col-lg-4 col-md-6">
+<div class="canvas-card text-center">
+<h5 class="mb-3">Objeto 2D</h5>
+<canvas id="canvasOOP" width="300" height="200"></canvas>
+</div>
+</div>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 DIAZ ROSALES ANAHI | Graficación por Computadora
-    </footer>
+<div class="col-lg-4 col-md-6">
+<div class="canvas-card text-center">
+<h5 class="mb-3">Objeto Random</h5>
+<canvas id="canvasRandom" width="300" height="200"></canvas>
+</div>
+</div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<div class="col-lg-4 col-md-6">
+<div class="canvas-card text-center">
+<h5 class="mb-3">Múltiples Objetos</h5>
+<canvas id="canvasMultiple" width="300" height="200"></canvas>
+</div>
+</div>
 
-    <!-- Script -->
-    <script src="./assets/js/main.js"></script>
+</div>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+<p>© 2026 Diaz Rosales Anahi | Graficación por Computadora</p>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="./assests/js/main.js"></script>
 
 </body>
-
 </html>
